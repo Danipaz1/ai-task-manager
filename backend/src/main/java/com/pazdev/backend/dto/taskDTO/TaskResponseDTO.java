@@ -1,4 +1,4 @@
-package com.pazdev.backend.dto;
+package com.pazdev.backend.dto.taskDTO;
 
 public class TaskResponseDTO {
     private Long id;

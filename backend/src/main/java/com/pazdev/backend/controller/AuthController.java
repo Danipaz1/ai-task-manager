@@ -1,10 +1,12 @@
 package com.pazdev.backend.controller;
 
-import com.pazdev.backend.dto.AuthResponseDTO;
-import com.pazdev.backend.dto.LoginRequestDTO;
-import com.pazdev.backend.dto.RegisterRequestDTO;
+import com.pazdev.backend.dto.authDTO.AuthResponseDTO;
+import com.pazdev.backend.dto.authDTO.LoginRequestDTO;
+import com.pazdev.backend.dto.authDTO.RegisterRequestDTO;
 import com.pazdev.backend.service.AuthService;
 import com.pazdev.backend.service.UserService;
+
+import jakarta.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -21,7 +23,8 @@ public class AuthController {
     private AuthService authService;
 
     @PostMapping("/register")
-    public ResponseEntity<AuthResponseDTO> register(@RequestBody RegisterRequestDTO request) {
+    public ResponseEntity<AuthResponseDTO> register(@Valid @RequestBody RegisterRequestDTO request) {
+            System.out.println("ENTRO AL REGISTER");
         AuthResponseDTO response = authService.register(request);
         return ResponseEntity.ok(response);
     }

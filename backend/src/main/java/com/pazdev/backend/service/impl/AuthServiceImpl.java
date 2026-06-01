@@ -5,10 +5,11 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.pazdev.backend.dto.AuthResponseDTO;
-import com.pazdev.backend.dto.LoginRequestDTO;
-import com.pazdev.backend.dto.RegisterRequestDTO;
+import com.pazdev.backend.dto.authDTO.AuthResponseDTO;
+import com.pazdev.backend.dto.authDTO.LoginRequestDTO;
+import com.pazdev.backend.dto.authDTO.RegisterRequestDTO;
 import com.pazdev.backend.entity.User;
+import com.pazdev.backend.exception.BadRequestException;
 import com.pazdev.backend.repository.UserRepository;
 import com.pazdev.backend.security.JwtService;
 import com.pazdev.backend.service.AuthService;
@@ -36,24 +37,12 @@ public class AuthServiceImpl implements AuthService {
     @Override
     public AuthResponseDTO register(RegisterRequestDTO request) {
         // Implementation for user registration
-
         String name = request.getName();
-        if (name == null || name.trim().isEmpty()) {
-            throw new RuntimeException("Name cannot be empty");
-        }
-
         String email = request.getEmail();
-        if (email == null || !email.matches("^[A-Za-z0-9+_.-]+@(.+)$")) {
-            throw new RuntimeException("Invalid email format");
-        }
 
         if (userRepository.existsByEmail(email)) {
-            throw new RuntimeException("Email already in use");
+            throw new BadRequestException("Email already in use");
 
-        }
-
-        if (request.getPassword() == null || request.getPassword().length() < 6) {
-            throw new RuntimeException("Password must be at least 6 characters long");
         }
 
         String password = request.getPassword();
@@ -71,10 +60,6 @@ public class AuthServiceImpl implements AuthService {
     @Override
     public AuthResponseDTO login(LoginRequestDTO request) {
         // Implementation for user login
-        if (request.getEmail() == null || request.getPassword() == null) {
-            throw new RuntimeException("Email and password are required");
-        }
-
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                         request.getEmail(),

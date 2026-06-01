@@ -1,8 +1,8 @@
 package com.pazdev.backend.service;
 
-import com.pazdev.backend.dto.AuthResponseDTO;
-import com.pazdev.backend.dto.LoginRequestDTO;
-import com.pazdev.backend.dto.RegisterRequestDTO;
+import com.pazdev.backend.dto.authDTO.AuthResponseDTO;
+import com.pazdev.backend.dto.authDTO.LoginRequestDTO;
+import com.pazdev.backend.dto.authDTO.RegisterRequestDTO;
 
 public interface AuthService {
     AuthResponseDTO register(RegisterRequestDTO request);

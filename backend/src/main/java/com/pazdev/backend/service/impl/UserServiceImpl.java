@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.pazdev.backend.dto.UserResponseDTO;
+import com.pazdev.backend.dto.userDTO.UserResponseDTO;
 import com.pazdev.backend.repository.UserRepository;
 import com.pazdev.backend.service.UserService;
 

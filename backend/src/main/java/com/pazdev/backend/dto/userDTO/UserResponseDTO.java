@@ -1,4 +1,4 @@
-package com.pazdev.backend.dto;
+package com.pazdev.backend.dto.userDTO;
 
 public class UserResponseDTO {
     private Long id;

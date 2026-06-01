@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.pazdev.backend.dto.TaskResponseDTO;
+import com.pazdev.backend.dto.taskDTO.TaskResponseDTO;
 import com.pazdev.backend.service.TaskService;
 
 @RestController

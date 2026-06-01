@@ -1,4 +1,4 @@
-package com.pazdev.backend.dto;
+package com.pazdev.backend.dto.authDTO;
 
 public class AuthResponseDTO {
 

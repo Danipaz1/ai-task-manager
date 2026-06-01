@@ -2,7 +2,7 @@ package com.pazdev.backend.service;
 
 import java.util.List;
 
-import com.pazdev.backend.dto.TaskResponseDTO;
+import com.pazdev.backend.dto.taskDTO.TaskResponseDTO;
 
 public interface TaskService {
     List<TaskResponseDTO> getAllTasks();
