@@ -35,7 +35,8 @@ public class TaskController {
     }
 
     @GetMapping("/search")
-    public List<TaskResponseDTO> getTasksBySearch(@RequestParam String title) {
-        return taskService.getTasksBySearch(title);
+    public List<TaskResponseDTO> getTasksBySearch(
+        @RequestParam(required = false) String title, @RequestParam(required = false) String status) {
+        return taskService.getTasksBySearch(title, status);
     }
 }

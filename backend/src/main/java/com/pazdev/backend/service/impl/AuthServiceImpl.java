@@ -36,7 +36,7 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public AuthResponseDTO register(RegisterRequestDTO request) {
-        // Implementation for user registration
+
         String name = request.getName();
         String email = request.getEmail();
 
@@ -59,7 +59,7 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public AuthResponseDTO login(LoginRequestDTO request) {
-        // Implementation for user login
+        
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                         request.getEmail(),

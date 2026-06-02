@@ -11,5 +11,5 @@ public interface TaskService {
 
     List<TaskResponseDTO> getTasksByStatus(String status);
 
-    List<TaskResponseDTO> getTasksBySearch(String title);
+    List<TaskResponseDTO> getTasksBySearch(String title, String status);
 }
