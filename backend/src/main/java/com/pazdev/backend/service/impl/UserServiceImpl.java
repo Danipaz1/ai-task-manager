@@ -27,6 +27,6 @@ public class UserServiceImpl implements UserService {
     public List<UserResponseDTO> getAllUsers() {
         return userRepository.findAll().stream()
                 .map(userMapper::toResponse)
-                .collect(java.util.stream.Collectors.toList());
+                .toList();
     }
 }

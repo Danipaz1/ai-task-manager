@@ -2,14 +2,21 @@ package com.pazdev.backend.service;
 
 import java.util.List;
 
+import com.pazdev.backend.dto.taskDTO.CreateTaskDTO;
 import com.pazdev.backend.dto.taskDTO.TaskResponseDTO;
+import com.pazdev.backend.dto.taskDTO.UpdateTaskDTO;
 
 public interface TaskService {
-    List<TaskResponseDTO> getAllTasks();
+
+    TaskResponseDTO getTaskById(Long taskId);
 
     List<TaskResponseDTO> getTasksByUserId(Long userId);
 
-    List<TaskResponseDTO> getTasksByStatus(String status);
+    List<TaskResponseDTO> getTasksByParams(String title, String status);
 
-    List<TaskResponseDTO> getTasksBySearch(String title, String status);
+    TaskResponseDTO createTask(CreateTaskDTO createTaskDTO);
+
+    TaskResponseDTO updateTask(Long taskId, UpdateTaskDTO updateTaskDTO);
+
+    void deleteTask(Long taskId);
 }
